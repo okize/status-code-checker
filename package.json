@@ -1,0 +1,18 @@
+{
+  "name": "status-code-checker",
+  "version": "0.1.0",
+  "description": "pass a url string or array of url strings and this will return the status code of those urls'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okize/status-code-checker.git"
+  },
+  "author": "Morgan Wigmanich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okize/status-code-checker/issues"
+  }
+}
