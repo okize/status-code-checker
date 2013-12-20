@@ -1,8 +1,12 @@
 {
   "name": "status-code-checker",
   "version": "0.1.0",
-  "description": "pass a url string or array of url strings and this will return the status code of those urls'",
-  "main": "index.js",
+  "description": "Takes a url string or array of url strings and returns the status code of those urls'",
+  "preferGlobal": true,
+  "keywords": [],
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +14,12 @@
     "type": "git",
     "url": "https://github.com/okize/status-code-checker.git"
   },
-  "author": "Morgan Wigmanich",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/okize/status-code-checker/issues"
-  }
+  "bugs": "https://github.com/okize/status-code-checker/issues",
+  "homepage": "https://github.com/okize/status-code-checker/",
+  "author": {
+    "name": "Morgan Wigmanich",
+    "email": "okize123@gmail.com",
+    "url": "https://github.com/okize"
+  },
+  "license": "MIT"
 }
