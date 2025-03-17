@@ -1,14 +1,36 @@
 {
   "name": "status-code-checker",
-  "version": "0.1.0",
-  "description": "Takes a url string or array of url strings and returns the status code of those urls'",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Takes a url string or array of url strings and returns the status code of those urls",
   "preferGlobal": true,
-  "keywords": [],
+  "bin": {
+    "status-check": "./bin/status-check.mjs"
+  },
+  "keywords": [
+    "http",
+    "status",
+    "checker",
+    "url",
+    "cli"
+  ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "axios": "^1.8.1",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "vitest": "^3.0.7"
   },
   "repository": {
     "type": "git",
