@@ -1,21 +1,20 @@
-import axios from 'axios';
-
 const checkUrl = async (url) => {
   try {
-    const response = await axios.get(url, {
-      validateStatus: () => true,
-      timeout: 5000,
+    const response = await fetch(url, {
+      signal: AbortSignal.timeout(5000),
       headers: {
         'User-Agent': 'status-code-checker/1.0',
       },
+      redirect: 'follow',
     });
     return { url, status: response.status };
   } catch (error) {
-    return { 
-      url, 
-      error: error.code === 'ECONNREFUSED' 
-        ? 'Connection refused' 
-        : error.message, 
+    const cause = error.cause || error;
+    return {
+      url,
+      error: cause.code === 'ECONNREFUSED'
+        ? 'Connection refused'
+        : cause.message || error.message,
     };
   }
 };
