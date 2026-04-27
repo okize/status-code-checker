@@ -9,7 +9,11 @@
 	},
 	"102": {
 		"title": "Processing",
-		"description": ""
+		"description": "The server has received and is processing the request, but no response is available yet. This status code is an interim response used to inform the client that the server has accepted the complete request but has not yet completed it. This prevents the client from timing out and assuming the request was lost. Defined in WebDAV (RFC 2518)."
+	},
+	"103": {
+		"title": "Early Hints",
+		"description": "The server is sending some response headers before the final HTTP message. This allows the client to start preloading resources while the server prepares a response. Primarily used with the Link header to allow the user agent to begin preloading resources. Defined in RFC 8297."
 	},
 	"200": {
 		"title": "OK",
@@ -41,15 +45,15 @@
 	},
 	"207": {
 		"title": "Multi-Status",
-		"description": ""
+		"description": "The message body that follows is by default an XML message and can contain a number of separate response codes, depending on how many sub-requests were made. Used in WebDAV (RFC 4918) to convey information about multiple resources in situations where multiple status codes might be appropriate."
 	},
 	"208": {
 		"title": "Already Reported",
-		"description": ""
+		"description": "The members of a DAV binding have already been enumerated in a preceding part of the multistatus response, and are not being included again. Used inside a DAV:propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly. Defined in RFC 5842."
 	},
 	"226": {
 		"title": "IM Used",
-		"description": ""
+		"description": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance. The actual current instance might not be available except by combining this response with other previous or future responses, as appropriate for the specific instance-manipulation(s). Defined in RFC 3229."
 	},
 	"300": {
 		"title": "Multiple Choices",
@@ -85,7 +89,7 @@
 	},
 	"308": {
 		"title": "Permanent Redirect",
-		"description": ""
+		"description": "The target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs. The server is indicating that this and all future requests should be directed to the given URI. This status code is similar to 301 (Moved Permanently), except that the user agent MUST NOT change the request method used when reissuing the original request. Defined in RFC 7538."
 	},
 	"400": {
 		"title": "Bad Request",
@@ -161,59 +165,67 @@
 	},
 	"418": {
 		"title": "I'm A Teapot",
-		"description": ""
+		"description": "Any attempt to brew coffee with a teapot should result in the error code 418 I'm a teapot. The resulting entity body MAY be short and stout. Defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) as an April Fools' joke, but referenced by actual implementations."
 	},
 	"420": {
 		"title": "Enhance Your Calm",
-		"description": ""
+		"description": "Returned by the Twitter API when the client is being rate limited. Not part of any standard. A reference to the film Demolition Man."
+	},
+	"421": {
+		"title": "Misdirected Request",
+		"description": "The request was directed at a server that is not able to produce a response. This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI. Defined in RFC 7540 (HTTP/2)."
 	},
 	"422": {
 		"title": "Unprocessable Entity",
-		"description": ""
+		"description": "The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions. For example, this error condition may occur if an XML request body contains well-formed but semantically erroneous XML instructions. Defined in WebDAV (RFC 4918)."
 	},
 	"423": {
 		"title": "Locked",
-		"description": ""
+		"description": "The source or destination resource of a method is locked. This response SHOULD contain an appropriate precondition or postcondition code. Defined in WebDAV (RFC 4918)."
 	},
 	"424": {
 		"title": "Failed Dependency",
-		"description": ""
+		"description": "The method could not be performed on the resource because the requested action depended on another action and that action failed. Defined in WebDAV (RFC 4918)."
+	},
+	"425": {
+		"title": "Too Early",
+		"description": "The server is unwilling to risk processing a request that might be replayed. This status code is intended to prevent attacks where an early data request is replayed against a server. Defined in RFC 8470."
 	},
 	"426": {
 		"title": "Upgrade Required",
-		"description": ""
+		"description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. The server MUST send an Upgrade header field in a 426 response to indicate the required protocol(s). Defined in RFC 7231."
 	},
 	"428": {
 		"title": "Precondition Required",
-		"description": ""
+		"description": "The origin server requires the request to be conditional. This is intended to prevent the lost update problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict. Defined in RFC 6585."
 	},
 	"429": {
 		"title": "Too Many Requests",
-		"description": ""
+		"description": "The user has sent too many requests in a given amount of time (rate limiting). The response representations SHOULD include details explaining the condition, and MAY include a Retry-After header indicating how long to wait before making a new request. Defined in RFC 6585."
 	},
 	"431": {
 		"title": "Request Header Fields Too Large",
-		"description": ""
+		"description": "The server is unwilling to process the request because its header fields are too large. The request MAY be resubmitted after reducing the size of the request header fields. It can be used both when the set of request header fields in total is too large, and when a single header field is at fault. Defined in RFC 6585."
 	},
 	"444": {
 		"title": "No Response (Nginx)",
-		"description": ""
+		"description": "A non-standard status code used by Nginx to instruct the server to return no information to the client and close the connection immediately. Useful as a deterrent for malware or malicious activity."
 	},
 	"449": {
 		"title": "Retry With (Microsoft)",
-		"description": ""
+		"description": "A non-standard status code used by Microsoft IIS. The request should be retried after performing the appropriate action. Often used with Microsoft extensions to indicate additional information is needed from the user."
 	},
 	"450": {
 		"title": "Blocked by Windows Parental Controls (Microsoft)",
-		"description": ""
+		"description": "A non-standard status code used by Microsoft. Returned when Windows Parental Controls are turned on and are blocking access to the requested webpage."
 	},
 	"451": {
 		"title": "Unavailable for Legal Reasons",
-		"description": ""
+		"description": "The server is denying access to the resource as a consequence of a legal demand. The server in question might not be an origin server. This type of legal demand typically most directly affects the operations of ISPs and search engines. The use of the 451 status code implies neither the existence nor non-existence of the resource named in the request. Defined in RFC 7725. The status code is a reference to the novel Fahrenheit 451."
 	},
 	"499": {
 		"title": "Client Closed Request (Nginx)",
-		"description": ""
+		"description": "A non-standard status code used by Nginx. Returned when the client has closed the connection while Nginx was processing the request, making it unable to send a response back."
 	},
 	"500": {
 		"title": "Internal Server Error",
@@ -241,34 +253,34 @@
 	},
 	"506": {
 		"title": "Variant Also Negotiates",
-		"description": ""
+		"description": "The server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process. Defined in RFC 2295."
 	},
 	"507": {
 		"title": "Insufficient Storage",
-		"description": ""
+		"description": "The server is unable to store the representation needed to complete the request. This condition is considered to be temporary. If the request that received this status code was the result of a user action, the request MUST NOT be repeated until it is requested by a separate user action. Defined in WebDAV (RFC 4918)."
 	},
 	"508": {
 		"title": "Loop Detected",
-		"description": ""
+		"description": "The server detected an infinite loop while processing the request. This status indicates that the entire operation failed. Defined in WebDAV (RFC 5842)."
 	},
 	"509": {
 		"title": "Bandwidth Limit Exceeded",
-		"description": ""
+		"description": "A non-standard status code used by some servers when a site's bandwidth limit has been exceeded. Not part of any official specification."
 	},
 	"510": {
 		"title": "Not Extended",
-		"description": ""
+		"description": "Further extensions to the request are required for the server to fulfill it. The policy for accessing the resource has not been met in the request. The server should send back all the information necessary for the client to issue an extended request. Defined in RFC 2774."
 	},
 	"511": {
 		"title": "Network Authentication Required",
-		"description": ""
-	},	
+		"description": "The client needs to authenticate to gain network access. The response representation SHOULD contain a link to a resource that allows the user to submit credentials. Intended for use by intercepting proxies used to control access to the network, such as captive portals. Defined in RFC 6585."
+	},
 	"598": {
 		"title": "Network read timeout error",
-		"description": ""
+		"description": "A non-standard status code used by some HTTP proxies to signal a network read timeout behind the proxy to a client in front of the proxy."
 	},
 	"599": {
 		"title": "Network connect timeout error",
-		"description": ""
+		"description": "A non-standard status code used by some HTTP proxies to signal a network connect timeout behind the proxy to a client in front of the proxy."
 	}
 }
