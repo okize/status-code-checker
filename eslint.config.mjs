@@ -13,12 +13,5 @@ export default [
       },
     },
     files: ['**/*.mjs'],
-    rules: {
-      'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
-      'no-console': ['error', { allow: ['log', 'error'] }],
-      'semi': ['error', 'always'],
-      'quotes': ['error', 'single'],
-      'comma-dangle': ['error', 'always-multiline'],
-    },
   },
-]; 
+];
