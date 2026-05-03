@@ -19,10 +19,10 @@ describe('checkUrl', () => {
 
 describe('checkUrls', () => {
   it('should check multiple URLs concurrently', async () => {
-    const urls = ['https://example.com', 'https://github.com'];
+    const urls = ['https://example.com', 'https://github.com', 'https://google.com'];
     const results = await checkUrls(urls);
-    
-    expect(results).toHaveLength(2);
+
+    expect(results).toHaveLength(3);
     results.forEach(result => {
       expect(result).toHaveProperty('url');
       expect(result).toMatchObject({
